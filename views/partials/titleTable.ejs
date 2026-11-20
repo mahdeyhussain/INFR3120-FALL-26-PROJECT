@@ -1,0 +1,30 @@
+<h2>All Movies</h2>
+
+<% if (titles.length === 0) { %>
+  <p>No movies yet. Add one!</p>
+<% } else { %>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Type</th>
+        <th>Genre</th>
+        <th>Where to Watch</th>
+        <th>Year</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% titles.forEach(function(t) { %>
+        <tr>
+          <td><%= t.title %></td>
+          <td><%= t.type %></td>
+          <td><%= t.genre %></td>
+          <td><%= t.platform %></td>
+          <td><%= t.year %></td>
+          <td><%= t.rating %>/10</td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+<% } %>
