@@ -12,4 +12,8 @@ router.get('/', async function(req, res, next) {
   }
 });
 
+router.get('/movies/add', function(req, res) {
+  res.render('addMovie', { title: 'Add Movie - CineScout' });
+});
+
 module.exports = router;
