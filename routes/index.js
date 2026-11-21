@@ -15,5 +15,21 @@ router.get('/', async function(req, res, next) {
 router.get('/movies/add', function(req, res) {
   res.render('addMovie', { title: 'Add Movie - CineScout' });
 });
+router.post('/movies/add', async function(req, res, next) {
+  try {
+    const newMovie = new Title({
+      title: req.body.title,
+      type: 'Movie',
+      genre: req.body.genre,
+      platform: req.body.platform,
+      year: req.body.year,
+      rating: req.body.rating
+    });
 
+    await newMovie.save();
+    res.redirect('/');
+  } catch (err) {
+    next(err);
+  }
+});
 module.exports = router;
